@@ -295,6 +295,13 @@ function load(data) {
   }
   document.title = data.title;
   get();
+}
+
+function load_html(html) {
+  document.getElementById("inout_example-detail").innerHTML = html
+  .replace(/%IMG_URL%/g, "https://euler-oj-problems.s3.ap-northeast-2.amazonaws.com/images")
+  .replace("입력형식", "입력")
+  .replace("출력형식", "출력");
   if(data.sampleInput.length == 1) {
     inout_example.innerHTML += make_inout2_example(
       0,
@@ -310,13 +317,6 @@ function load(data) {
       data.sampleOutput[i]
     );
   }
-}
-
-function load_html(html) {
-  document.getElementById("inout_example-detail").innerHTML = html
-  .replace(/%IMG_URL%/g, "https://euler-oj-problems.s3.ap-northeast-2.amazonaws.com/images")
-  .replace("입력형식", "입력")
-  .replace("출력형식", "출력");
 }
 </script>
 </html>
